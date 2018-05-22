@@ -6,17 +6,17 @@
     
     <UserControl.Resources>
         <Style TargetType="Path">
-            <Setter Property="Stroke" Value="{StaticResource ApplicationForegroundThemeBrush}" />
+            <Setter Property="Stroke" Value="{StaticResource ForegroundThemeBrush}" />
             <Setter Property="StrokeThickness" Value="2" />
             <Setter Property="StrokeStartLineCap" Value="Round" />
             <Setter Property="StrokeEndLineCap" Value="Round" />
             <Setter Property="StrokeLineJoin" Value="Round" />
             <Setter Property="StrokeDashCap" Value="Round" />
-            <Setter Property="Fill" Value="LimeGreen" />
+            <Setter Property="Fill" Value="Black" />
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{StaticResource ForegroundThemeBrush}">
 
         <Viewbox>
             <!-- Панель Grid содержит графику с началом координат (0,0) -->
@@ -55,16 +55,18 @@
                 </Path>
 
                 <!-- Минутная стрелка, указывающая вверх -->
-                <Path Data="M 0 -80 C 0 -75, 0 -70, 2.5 -60 L 2.5 0
+                <Path Data="M 0 -67C 0 -65, 0 -70, 2.5 -60 L 2.5 0
                                     C 2.5 5, -2.5 5, -2.5 0 L -2.55 -60
-                                    C 0 -70, 0 -75, 0 -80">
+                                    C 0 -70, 0 -65, 0 -67">
                     <Path.RenderTransform>
                         <RotateTransform x:Name="rotateMinute" Angle="290" />
                     </Path.RenderTransform>
                 </Path>
 
                 <!-- Секундная стрелка, указывающая вверх -->
-                <Path Data="M 0 10 L 0 -80">
+                <Path Data="M 0 -85 C 0 -85, 0 -70, 1 -60 L 2.5 0
+                                    C 2.5 5, -2.5 5, -2.5 0 L -1.05 -60
+                                    C 0 -70, 0 -85, 0 -90">
                     <Path.RenderTransform>
                         <RotateTransform x:Name="rotateSecond" Angle="195" />
                     </Path.RenderTransform>

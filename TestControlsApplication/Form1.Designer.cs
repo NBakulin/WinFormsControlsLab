@@ -32,6 +32,8 @@
             this.colorSelector1 = new LabControls.ColorSelector();
             this.filePathSelect1 = new LabControls.FilePathSelect();
             this.numberBox1 = new LabControls.NumberBox(this.components);
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.clocks1 = new LabControls.Clocks();
             this.SuspendLayout();
             // 
             // colorSelector1
@@ -58,11 +60,21 @@
             this.numberBox1.Size = new System.Drawing.Size(356, 20);
             this.numberBox1.TabIndex = 0;
             // 
+            // elementHost1
+            // 
+            this.elementHost1.Location = new System.Drawing.Point(660, 24);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(200, 100);
+            this.elementHost1.TabIndex = 4;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = this.clocks1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1332, 341);
+            this.ClientSize = new System.Drawing.Size(909, 168);
+            this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.colorSelector1);
             this.Controls.Add(this.filePathSelect1);
             this.Controls.Add(this.numberBox1);
@@ -78,6 +90,8 @@
         private LabControls.NumberBox numberBox1;
         private LabControls.FilePathSelect filePathSelect1;
         private LabControls.ColorSelector colorSelector1;
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private LabControls.Clocks clocks1;
     }
 }
 
