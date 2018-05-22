@@ -18,32 +18,18 @@ namespace LabControls
 {
     public partial class Clocks : UserControl
     {
-
-        DispatcherTimer dispatcherTimer;
-        private int degrees = 0;
         public Clocks()
         {
-            InitializeComponent();
-            dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            this.InitializeComponent();
+            CompositionTarget.Rendering += CompositionTarget_Rendering;
         }
 
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        private void CompositionTarget_Rendering(object sender, object args)
         {
-            degrees += 5;
-            if (degrees > 360)
-            {
-                degrees = 0;
-            }
-            RotateTransform transform = new RotateTransform(degrees, StickImg.Width / 2, StickImg.Height / 2);
-            //StickImg.RenderTransformOrigin = new System.Windows.Point(0, 0); 
-            StickImg.RenderTransform = transform;
-        }
-
-        private void Window_ContentRendered_1(object sender, EventArgs e)
-        {
-            dispatcherTimer.Start();
+            DateTime dt = DateTime.Now;
+            rotateSecond.Angle = 6 * (dt.Second + dt.Millisecond / 1000.0);
+            rotateMinute.Angle = 6 * dt.Minute + rotateSecond.Angle / 60;
+            rotateHour.Angle = 30 * (dt.Hour % 12) + rotateMinute.Angle / 12;
         }
     }
 }
