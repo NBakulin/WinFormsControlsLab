@@ -38,9 +38,9 @@
             // 
             // elementHost1
             // 
-            this.elementHost1.Location = new System.Drawing.Point(629, 22);
+            this.elementHost1.Location = new System.Drawing.Point(636, 12);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(94, 90);
+            this.elementHost1.Size = new System.Drawing.Size(137, 134);
             this.elementHost1.TabIndex = 4;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.clocks2;
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 158);
+            this.ClientSize = new System.Drawing.Size(816, 158);
             this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.colorSelector1);
             this.Controls.Add(this.filePathSelect1);
