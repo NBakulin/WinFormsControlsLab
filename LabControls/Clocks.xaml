@@ -6,7 +6,6 @@
     
     <UserControl.Resources>
         <Style TargetType="Path">
-            <Setter Property="Stroke" Value="{StaticResource ForegroundThemeBrush}" />
             <Setter Property="StrokeThickness" Value="2" />
             <Setter Property="StrokeStartLineCap" Value="Round" />
             <Setter Property="StrokeEndLineCap" Value="Round" />
@@ -16,8 +15,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="{StaticResource ForegroundThemeBrush}">
-
+    <Grid>
         <Viewbox>
             <!-- Панель Grid содержит графику с началом координат (0,0) -->
             <Grid Width="200" Height="200">
@@ -29,6 +27,7 @@
 
                 <!-- Малые деления часов -->
                 <Path Fill="{x:Null}"
+                      Stroke ="Black"
                       StrokeThickness="3"
                       StrokeDashArray="0 3.14159">
                     <Path.Data>
@@ -38,6 +37,7 @@
 
                 <!-- Большие деления часов -->
                 <Path Fill="{x:Null}"
+                      Stroke ="Black"
                       StrokeThickness="6"
                       StrokeDashArray="0 7.854">
                     <Path.Data>
@@ -50,7 +50,7 @@
                                     C 5 7.5, -5 7.5, -5 0 L -5 -20
                                     C -20 -30, 0 -30, 0 -60">
                     <Path.RenderTransform>
-                        <RotateTransform x:Name="rotateHour" Angle="135" />
+                        <RotateTransform x:Name="rotateHour" Angle="180" />
                     </Path.RenderTransform>
                 </Path>
 
@@ -59,7 +59,7 @@
                                     C 2.5 5, -2.5 5, -2.5 0 L -2.55 -60
                                     C 0 -70, 0 -65, 0 -67">
                     <Path.RenderTransform>
-                        <RotateTransform x:Name="rotateMinute" Angle="290" />
+                        <RotateTransform x:Name="rotateMinute" Angle="90" />
                     </Path.RenderTransform>
                 </Path>
 
@@ -68,7 +68,7 @@
                                     C 2.5 5, -2.5 5, -2.5 0 L -1.05 -60
                                     C 0 -70, 0 -85, 0 -90">
                     <Path.RenderTransform>
-                        <RotateTransform x:Name="rotateSecond" Angle="195" />
+                        <RotateTransform x:Name="rotateSecond" Angle="0" />
                     </Path.RenderTransform>
                 </Path>
             </Grid>
