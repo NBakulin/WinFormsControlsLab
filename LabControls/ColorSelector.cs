@@ -62,29 +62,50 @@ namespace LabControls
 
         private void radioButton2_Click(object sender, EventArgs e)
         {
-            Red.Text = Convert.ToString(Convert.ToInt32(Red.Text), 16);
+            try
+            {
+                Red.Text = Convert.ToString(Convert.ToInt32(Red.Text), 16);
             Green.Text = Convert.ToString(Convert.ToInt32(Green.Text), 16);
             Blue.Text = Convert.ToString(Convert.ToInt32(Blue.Text), 16);
-        }
+            }
+            catch (Exception)
+            {
+
+            }
+}
 
         private void radioButton1_Click(object sender, EventArgs e)
         {
-            Red.Text = Convert.ToString(Convert.ToInt32(Red.Text, 16), 10);
-            Green.Text = Convert.ToString(Convert.ToInt32(Green.Text, 16), 10);
-            Blue.Text = Convert.ToString(Convert.ToInt32(Blue.Text, 16), 10);
+            try
+            {
+                Red.Text = Convert.ToString(Convert.ToInt32(Red.Text, 16), 10);
+                Green.Text = Convert.ToString(Convert.ToInt32(Green.Text, 16), 10);
+                Blue.Text = Convert.ToString(Convert.ToInt32(Blue.Text, 16), 10);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
-            if (radioButton1.Checked == true)
+            if (radioButton1.Checked)
             {
                 if (((TextBox)sender).Text == "")
                 {
                     ((TextBox)sender).AppendText("0");
                 }
-                if (Convert.ToInt32(((TextBox)sender).Text) >= 255)
+                try
                 {
-                    ((TextBox)sender).Text = "255";
+                    if (Convert.ToInt32(((TextBox)sender).Text) >= 255)
+                    {
+                        ((TextBox)sender).Text = "255";
+                    }
+                }
+                catch (Exception)
+                {
+                    ((TextBox)sender).Text = "0";
                 }
                 if (Convert.ToInt32(((TextBox)sender).Text) <= 0)
                 {
@@ -116,9 +137,16 @@ namespace LabControls
                 {
                     ((TextBox)sender).AppendText("0");
                 }
-                if (Convert.ToInt32(Convert.ToString(Convert.ToInt32(((TextBox)sender).Text, 16), 10), 10) >= 255)
+                try
                 {
-                    ((TextBox)sender).Text = "FF";
+                    if (Convert.ToInt32(Convert.ToString(Convert.ToInt32(((TextBox)sender).Text, 16), 10), 10) >= 255)
+                    {
+                        ((TextBox)sender).Text = "FF";
+                    }
+                }
+                catch (Exception)
+                {
+                    ((TextBox)sender).Text = "0";
                 }
                 if (Convert.ToInt32(Convert.ToString(Convert.ToInt32(((TextBox)sender).Text, 16), 10), 10) <= 0)
                 {
